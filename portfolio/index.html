@@ -5,35 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <header class="bodyHeader">
         <h1>
             Portfolio Varvara Riabko
         </h1>
+        <nav>
+            <!-- ORDERED LIST - LISTA NUMEROWANA -->
+            <!-- LIST ITEM - ELEMENT LISTY -->
+            <!-- <ol>
+                  <li>list item1 </li>
+                  <li>list item2 </li>
+                  <li>list item3 </li>
+                </ol> -->
         
+            <!-- UNORDERED LIST - LISTA NIENUMEROWANA -->
+            <ul>
+                <li>O MNIE</li>
+                <li>UMIĘTNOŚCI</li>
+                <li>KONTAKT</li>
+            </ul>
+        
+        </nav>
+
     </header>   
     <!-- GŁÓWNA NAWIGACJA -->
-    <nav>
-        <!-- ORDERED LIST - LISTA NUMEROWANA -->
-        <!-- LIST ITEM - ELEMENT LISTY -->
-        <!-- <ol>
-          <li>list item1 </li>
-          <li>list item2 </li>
-          <li>list item3 </li>
-        </ol> -->
-    
-        <!-- UNORDERED LIST - LISTA NIENUMEROWANA -->
-        <ul>
-            <li>O MNIE</li>
-            <li>UMIĘTNOŚCI</li>
-            <li>KONTAKT</li>
-        </ul>
-    
-    </nav>
+   
     <main>
-        <h2>O MNIE</h2>
+        <header>
+            <h2>O MNIE</h2>
+        </header>
+        
         <img src="img/person.png" alt="personal image">
     </main>
      <article>
@@ -85,7 +90,7 @@
 
             <input type="email" placeholder="EMAIL"/>
             <input type="text" placeholder="TYTUŁ ">
-            <textarea cols="21" rows="5"></textarea>
+            <textarea cols="21" rows="5" placeholder="WIADOMOŚĆ"></textarea>
             <input type="submit" value="WYŚLIJ">
 
         </form>
