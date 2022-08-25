@@ -45,6 +45,7 @@ form{
     flex-direction: column;
     padding: 15px;
     gap:5px;
+    width: 50%;
 
 
 }
@@ -55,3 +56,15 @@ input, textarea{
 img{
     max-width: 100%;
 }
+.wrapper{
+    border:5px dashed pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.wrapper header{
+    width:100%;
+}
+
