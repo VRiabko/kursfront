@@ -4,8 +4,13 @@
 body{
     background-color: bisque;
 }
+
+aside p{
+    position: static;
+}
 main{
     border: 5px dashed red;
+    position: sticky;
 }
 article{
     border: 5px dashed blue;
@@ -34,3 +39,7 @@ article p, img{
 article p:active{
     opacity: 0;
 }
+footer p{
+    position: fixed;
+}
+
