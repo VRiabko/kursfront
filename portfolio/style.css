@@ -1,10 +1,19 @@
+
+:root{
+    --foreground-dark: #AD5F90;
+    --foreground-light: #E4C4C9;
+    --background-dark: #1A757A;
+    --background-light: #58A9AD;
+}
+
 body{
-    background-color: rgba(113, 183, 223, 0.726);
+    /* background-color: rgba(113, 183, 223, 0.726); */
+    background-color: var(--background-dark);
     margin:0px;
     min-height: 1000px;
 }
 .bodyHeader{
-    border: 5px dashed red;
+    background-color: var(--background-light);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,29 +23,87 @@ body{
 h1{
     /* zaczynamy zawsze od góry */
     margin: 6px 10px;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
 }
+#toggler{display:none;}
 
+#toggler:checked ~ ul{
+    right:0;
+}
+label{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top:0;
+    right:0;
+    margin: .15rem;
+
+}
+label div{
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    transition: .2s;
+}
+label div:nth-child(1){
+    top:calc( 22% - 1px);
+}
+label div:nth-child(2){
+    top: calc(50% - 1px);
+}
+label div:nth-child(3){
+    top: calc(78% - 1px);
+}
+#toggler:checked~label div:nth-child(1) {
+   transform: rotate(45deg);
+   top: calc(50% - 1px);
+}
+#toggler:checked ~ label div:nth-child(2){
+    opacity:0;
+}
+#toggler:checked~label div:nth-child(3) {
+    transform: rotate(-45deg);
+    top: calc(50% - 1px);
+}
 ul{
-    border: 5px dashed yellow;
+    background-color: var(--foreground-light) ;
     list-style-type: none;
     margin:0;
-    padding: 0;
+    padding: .5rem;
     display: flex;
-    
-
+    position: fixed;
+    right:-100%;
+    top:2.1rem;
+    height: calc( 100% - 2.1rem);
+    transition: .5s;
+    flex-direction: column;
+   
 }
+.bodyHeader a{
+    text-decoration: none;
+    color:inherit;
+}
+
 li{
-    border: 5px dashed blue;
+    
     top:0;
     left:0;
+    margin: .3rem;
     
 
 }
 
-@media(max-width:768px){
+@media(min-width:768px){
     /* ul{display:none;} */
     ul{
-        flex-direction: column;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+
+    }
+    label{
+        display: none;
     }
 }
 form{
