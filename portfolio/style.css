@@ -2,8 +2,10 @@
 :root{
     --foreground-dark: #AD5F90;
     --foreground-light: #E4C4C9;
+    --foreground-lighter: #eeebeb;
     --background-dark: #1A757A;
     --background-light: #58A9AD;
+    --default-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 body{
@@ -13,13 +15,20 @@ body{
     min-height: 1000px;
     font-family: 'Merriweather', serif;
 }
+.material-symbols-outlined {
+    margin: .25rem;
+}
 .bodyHeader{
     background-color: var(--background-light);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position:sticky;
+    position:fixed;
+    width: 100%;
     top:0;
+    -webkit-box-shadow: 3px 16px 25px -3px rgb(2, 3, 14);
+        -moz-box-shadow: 3px 16px 25px -3px rgb(12, 12, 12);
+        box-shadow: 3px 16px 25px -3px rgb(34, 35, 49);
 }
 h1{
     /* zaczynamy zawsze od góry */
@@ -79,9 +88,14 @@ ul{
     height: calc( 100% - 2.1rem);
     transition: .5s;
     flex-direction: column;
-   
 }
 .bodyHeader a{
+    text-decoration: none;
+    color:inherit;
+}
+a{
+    display:flex;
+    align-items: center;
     text-decoration: none;
     color:inherit;
 }
@@ -91,7 +105,6 @@ li{
     top:0;
     left:0;
     margin: .3rem;
-    
 
 }
 
@@ -108,12 +121,17 @@ li{
     }
 }
 form{
-    border: 2px dashed red;
     display:flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 1rem;
+    margin: 0 1rem;
     gap:5px;
-    width: 50%;
+    background-color: var(--foreground-lighter);
+    box-shadow: var(--default-box-shadow);
+    border-radius: .5rem;
+
+
+    
 
 
 }
@@ -129,6 +147,8 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 3.5rem .5rem 0 .5rem;
+  
 }
 
 
@@ -137,5 +157,58 @@ img{
 }
 *{
     box-sizing: border-box;
+}
+.wrapper h2{
+    margin: 0;
+}
+.wrapper p{
+    margin: 0;
+    margin-bottom: 2rem;
+    line-height: 1.2rem;
+}
+
+
+
+.tableWrapper{
+    padding: 0 1rem;
+}
+table{
+    box-shadow: var(--default-box-shadow);
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    background-color: var(--foreground-dark);
+    padding: .5rem;
+}
+td{
+    padding: .3rem;
+}
+tr{
+    background: var(--foreground-light);
+    
+}
+tr:nth-child(even){
+    background: var(--foreground-lighter);
+}
+
+footer{
+    /* border: 2px dashed red; */
+    margin-top: 3rem;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    font-size: .8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+   
+}
+footer ol{
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+}
+footer p{
+    margin: 0;
 }
 
