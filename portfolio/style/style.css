@@ -1,4 +1,3 @@
-@charset "UTF-8";
 :root {
   --foreground-dark: #AD5F90;
   --foreground-light: #E4C4C9;
@@ -6,6 +5,19 @@
   --background-dark: #1A757A;
   --background-light: #58A9AD;
   --default-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+* {
+  box-sizing: border-box;
+}
+* a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+* .material-symbols-outlined {
+  margin: 0.25rem;
 }
 
 html {
@@ -19,12 +31,7 @@ body {
   min-height: 1000px;
   font-family: "Merriweather", serif;
 }
-
-.material-symbols-outlined {
-  margin: 0.25rem;
-}
-
-.bodyHeader {
+body .bodyHeader {
   background-color: var(--background-light);
   display: flex;
   justify-content: space-between;
@@ -34,22 +41,28 @@ body {
   top: 0;
   box-shadow: 3px 16px 25px -3px rgb(34, 35, 49);
 }
-
-h1 {
-  /* zaczynamy zawsze od góry */
+body .bodyHeader h1 {
   margin: 6px 10px;
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
 }
-
-#toggler {
+body .bodyHeader nav #toggler {
   display: none;
 }
-
-#toggler:checked ~ ul {
+body .bodyHeader nav #toggler:checked ~ ul {
   right: 0;
 }
-
-label {
+body .bodyHeader nav #toggler:checked ~ label div:nth-child(1) {
+  transform: rotate(45deg);
+  top: calc(50% - 1px);
+}
+body .bodyHeader nav #toggler:checked ~ label div:nth-child(2) {
+  opacity: 0;
+}
+body .bodyHeader nav #toggler:checked ~ label div:nth-child(3) {
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
+}
+body .bodyHeader nav label {
   width: 2rem;
   height: 2rem;
   position: absolute;
@@ -57,42 +70,23 @@ label {
   right: 0;
   margin: 0.15rem;
 }
-
-label div {
+body .bodyHeader nav label div {
   height: 2px;
   width: 100%;
   background-color: black;
   position: absolute;
   transition: 0.2s;
 }
-
-label div:nth-child(1) {
+body .bodyHeader nav label div:nth-child(1) {
   top: calc(22% - 1px);
 }
-
-label div:nth-child(2) {
+body .bodyHeader nav label div div:nth-child(2) {
   top: calc(50% - 1px);
 }
-
-label div:nth-child(3) {
+body .bodyHeader nav label div div:nth-child(3) {
   top: calc(78% - 1px);
 }
-
-#toggler:checked ~ label div:nth-child(1) {
-  transform: rotate(45deg);
-  top: calc(50% - 1px);
-}
-
-#toggler:checked ~ label div:nth-child(2) {
-  opacity: 0;
-}
-
-#toggler:checked ~ label div:nth-child(3) {
-  transform: rotate(-45deg);
-  top: calc(50% - 1px);
-}
-
-ul {
+body .bodyHeader nav ul {
   background-color: var(--foreground-light);
   list-style-type: none;
   margin: 0;
@@ -105,37 +99,54 @@ ul {
   transition: 0.5s;
   flex-direction: column;
 }
-
-.bodyHeader a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-}
-
-li {
+body .bodyHeader nav ul li {
   top: 0;
   left: 0;
   margin: 0.3rem;
 }
 
-@media (min-width: 768px) {
-  /* ul{display:none;} */
-  ul {
-    flex-direction: row;
-    position: static;
-    background-color: transparent;
-  }
-  label {
-    display: none;
-  }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5rem 0.5rem 0 0.5rem;
 }
-form {
+.wrapper header {
+  width: 100%;
+}
+.wrapper header h2 {
+  margin: 0;
+}
+.wrapper .content p {
+  margin: 0;
+  margin-bottom: 2rem;
+  line-height: 1.2rem;
+}
+.wrapper .content img {
+  max-width: 100%;
+}
+.wrapper .content .tableWrapper {
+  padding: 0 1rem;
+}
+.wrapper .content table {
+  box-shadow: var(--default-box-shadow);
+  width: 100%;
+  border-collapse: collapse;
+}
+.wrapper .content table tr {
+  background: var(--foreground-light);
+}
+.wrapper .content table tr:nth-child(even) {
+  background: var(--foreground-lighter);
+}
+.wrapper .content table th {
+  background-color: var(--foreground-dark);
+  padding: 0.5rem;
+}
+.wrapper .content table td {
+  padding: 0.3rem;
+}
+.wrapper .content form {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -145,69 +156,11 @@ form {
   box-shadow: var(--default-box-shadow);
   border-radius: 0.5rem;
 }
-
-input,
-textarea {
+.wrapper .content form input,
+.wrapper .content form textarea {
   padding: 10px;
 }
-
-img {
-  max-width: 100%;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3.5rem 0.5rem 0 0.5rem;
-}
-
-.wrapper header {
-  width: 100%;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.wrapper h2 {
-  margin: 0;
-}
-
-.wrapper p {
-  margin: 0;
-  margin-bottom: 2rem;
-  line-height: 1.2rem;
-}
-
-.tableWrapper {
-  padding: 0 1rem;
-}
-
-table {
-  box-shadow: var(--default-box-shadow);
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th {
-  background-color: var(--foreground-dark);
-  padding: 0.5rem;
-}
-
-td {
-  padding: 0.3rem;
-}
-
-tr {
-  background: var(--foreground-light);
-}
-
-tr:nth-child(even) {
-  background: var(--foreground-lighter);
-}
-
-footer {
+.wrapper footer {
   /* border: 2px dashed red; */
   margin-top: 3rem;
   background-color: black;
@@ -217,13 +170,22 @@ footer {
   justify-content: space-between;
   align-items: flex-end;
 }
-
-footer ol {
+.wrapper footer ol {
   list-style: none;
   margin: 0;
   padding: 1rem;
 }
-
-footer p {
+.wrapper footer p {
   margin: 0;
-}/*# sourceMappingURL=style.css.map */
+}
+
+@media (min-width: 768px) {
+  body .bodyHeader nav ul {
+    flex-direction: row;
+    position: static;
+    background-color: transparent;
+  }
+  label {
+    display: none;
+  }
+}
