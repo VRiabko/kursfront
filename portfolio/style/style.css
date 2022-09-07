@@ -160,7 +160,8 @@ body .bodyHeader nav ul li {
 .wrapper .content form textarea {
   padding: 10px;
 }
-.wrapper footer {
+
+footer {
   /* border: 2px dashed red; */
   margin-top: 3rem;
   background-color: black;
@@ -171,12 +172,12 @@ body .bodyHeader nav ul li {
   align-items: flex-end;
   padding: 1rem;
 }
-.wrapper footer ol {
+footer ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.wrapper footer p {
+footer p {
   margin: 0;
 }
 
