@@ -13,6 +13,16 @@ const views = [
         "src": "3.webp",
         "name": "Trzeci",
         "alt": "Beach"
+    },
+    {
+        "src": "4.webp",
+        "name": "Czwarty",
+        "alt": "Bridge"
+    },
+    {
+        "src": "5.webp",
+        "name": "Piąty",
+        "alt": "Street"
     }
 
 ];
@@ -44,7 +54,7 @@ function modifyCurrentSlide( direction ) {
 
     }
     if (currentSlide < 0) {
-        currentSlide = 2;
+        currentSlide = views.length -1;
     }
     getSingleView(currentSlide)
 
