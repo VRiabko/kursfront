@@ -24,7 +24,8 @@ function makeWall(x, y, w, h, type = 'wall') {
 }
 
 const map = [
-    [0,0,20,20, 'start'],
+    [80,0,20,20, 'time'],
+    [0, 0, 20, 20, 'start'],
   [10,20,20,10],
   [20,30,20,10],
   [30,40,20,10],
@@ -40,8 +41,9 @@ for (const wall of map) {
 }
 
 const game = {
-    
+    maxTime : 5,
     buttons: {
+        time: document.querySelector('.time'),
         start: document.querySelector('.start'),
         meta: document.querySelector('.meta'),
         walls: document.querySelectorAll('.wall')
@@ -50,6 +52,8 @@ const game = {
     init() {
         
         game.buttons.start.onclick = function () { game.start() }
+        game.time = game.maxTime
+        game.buttons.time.innerHTML = game.time
     },
     start() {
         
@@ -62,7 +66,11 @@ const game = {
             
             wall.addEventListener('mousemove', game.wallListener)
         }
-
+        game.interval = setInterval(function(){
+      game.time--
+      if(game.time < 0) { game.over(false) }
+      game.buttons.time.innerHTML = game.time
+    }, 1000)
 
         console.log("GAME STARTED")
 
@@ -75,9 +83,12 @@ const game = {
     },
     over(result) {
         if (result) {
-            modal.show('Wygrana')
+            modal.show('Wygrana', 'rgb(22, 114, 83')
         } else {
-            modal.show('Przegrana')
+            modal.show('Przegrana', 'darkred')
+            
+
+
         }
         game.buttons.meta.removeEventListener('mousemove', game.over)
 
@@ -85,7 +96,7 @@ const game = {
          for(const wall of game.buttons.walls){
       wall.removeEventListener('mousemove', game.wallListener)
         }
-
+        clearInterval(game.interval)
 
         game.init()
     }
@@ -130,7 +141,8 @@ const modal = {
         modal.dom.append(button)
 
     },
-    show(text) {
+    show(text, color = 'rgb(22, 114, 83)') {
+        modal.dom.style.backgroundColor = color
         modal.dom.style.display = "flex";
         modal.h1.innerHTML= text
     },
