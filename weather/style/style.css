@@ -2,9 +2,6 @@ body {
   background-color: royalblue;
   margin: 0;
 }
-body main {
-  border: 5px dashed red;
-}
 body main header .city {
   border: 2px dashed blue;
   display: flex;
