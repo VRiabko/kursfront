@@ -15,22 +15,26 @@ console.log(timeConverter(0));
 
 let list = []
 
-fetch('https://api.openweathermap.org/data/2.5/forecast?lat=47.49865&lon=34.6574&appid=70e5b97ff739ae2d836bed3a3f1cf33d&lang=pl&units=metric')
-// fetch('https://api.openweathermap.org/data/2.5/forecast?lat=12.371428&lon=-1.519660&appid=70e5b97ff739ae2d836bed3a3f1cf33d&lang=pl&units=metric')
-    .then(res => res.json())
-    .then(res => {
-        // console.log(res)
-       console.log(document.querySelector(".city h2").innerText = res.city.name  )
-        document.querySelector("img").src = "https://countryflagsapi.com/svg/" +res.city.country
-        document.querySelector(".city .sunrise").innerText = timeConverter(res.city.sunrise);
-      document.querySelector(".city .sunset").innerText = timeConverter(res.city.sunset);
 
-      list = res.list
-      changeCubeInfo(0)
+const getWeatherInfo = (lat, lon) => {
+  
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=70e5b97ff739ae2d836bed3a3f1cf33d&lang=pl&units=metric`)
+      .then(res => res.json())
+      .then(res => {
+          // console.log(res)
+        console.log(document.querySelector(".city h2").innerText = res.city.name  )
+          document.querySelector("img").src = "https://countryflagsapi.com/svg/" +res.city.country
+          document.querySelector(".city .sunrise").innerText = timeConverter(res.city.sunrise);
+        document.querySelector(".city .sunset").innerText = timeConverter(res.city.sunset);
+  
+        list = res.list
+        changeCubeInfo(0)
+  
+        console.log("RES LISTA: ", res.list)
+  
+      })
+}
 
-      console.log("RES LISTA: ", res.list)
-
-    })
 
 const changeCubeInfo = index => {
   console.log("list", list)
@@ -54,13 +58,14 @@ const getLatLonDependOfName = () => {
 
 
     .then(res => res.json())
-    .then(res => {
-      console.log("lat",res[0].lat)
-      console.log("lon", res[0].lon)
+   .then(res => {
+      getWeatherInfo(res[0].lat, res[0].lon)
+      // console.log("lat",res[0].lat)
+      // console.log("lon", res[0].lon)
       
     })
 
   
   
 }
-
+getLatLonDependOfName()
