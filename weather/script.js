@@ -83,7 +83,7 @@ document.addEventListener("keydown", e => {
 })
 
 document.addEventListener("wheel", e => { 
-  if(e.deltaY < 0){
+  if(e.deltaY > 0){
     document.querySelector("#range").value--
   }
   else {
