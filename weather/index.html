@@ -8,13 +8,24 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="script.js" defer></script>
     <link rel="shortcut icon" href="#">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     
 </head>
 <body>
     <header>
         <div class="searchLocation">
-            <input type="text" id="location" value="Energodar">
-            <button onclick="getLatLonDependOfName()">SZUKAJ</button>
+            <div class="buttons">
+                <input class="Inputstyle" type="text" id="location" value="Dubaj" onclick="this.value=''">
+                <button onclick="getLatLonDependOfName()">SZUKAJ</button>
+            </div>
+            <div class="image">
+                <img src="img/Removal-47012.png" alt="clouds otherway">
+                <img src="img/removebg-preview.png" alt="sun">
+                <img src="img/Removal-470.png" alt="clouds">
+            </div>
+           
         </div>
 
 
@@ -22,13 +33,20 @@
     <main>
         <header>
             <div class="city">
-                <div class="sunrise">SUNRISE</div>
+                <div>
+
+                    <p>☀️</p>
+                    <div class="sunrise">SUNRISE</div>
+                </div>
                 <div class="mainInfo">
 
                     <img src="https://countryflagsapi.com/svg/PL" alt="PL FLAG">
                     <h2>Warszawa</h2>
                 </div>
-                <div class="sunset">SUNSET</div>
+                <div>
+                    <p>🌙</p>
+                    <div class="sunset">SUNSET</div>
+                </div>
 
             </div>
         </header>
@@ -67,6 +85,9 @@
 
 
         </div>
+        <footer>
+            <h4>There's No Bad Weather, Only Bad Clothes!</h4>
+        </footer>
     </main>
 </body>
 </html>

@@ -18,14 +18,14 @@ let list = []
 
 const getWeatherInfo = (lat, lon) => {
   
-  // fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=70e5b97ff739ae2d836bed3a3f1cf33d&lang=pl&units=metric`)
-  fetch(`https://raw.githubusercontent.com/apietryga/kurs/master/api/weather/info/lat%3D${lat}%26lon%3D${lon}`)
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=70e5b97ff739ae2d836bed3a3f1cf33d&lang=pl&units=metric`)
+  // fetch(`https://raw.githubusercontent.com/apietryga/kurs/master/api/weather/info/lat%3D${lat}%26lon%3D${lon}`)
 
       .then(res => res.json())
       .then(res => {
           // console.log(res)
         console.log(document.querySelector(".city h2").innerText = res.city.name  )
-          document.querySelector("img").src = "https://countryflagsapi.com/svg/" +res.city.country
+          document.querySelector(".mainInfo img").src = "https://countryflagsapi.com/svg/" +res.city.country
           document.querySelector(".city .sunrise").innerText = timeConverter(res.city.sunrise);
         document.querySelector(".city .sunset").innerText = timeConverter(res.city.sunset);
   
@@ -55,9 +55,10 @@ const changeCubeInfo = index => {
 
 const getLatLonDependOfName = () => { 
   const value = document.querySelector("#location").value
+  // document.querySelector("#location").value =""
   console.log(value)
-//  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=70e5b97ff739ae2d836bed3a3f1cf33d`)
-    fetch(`https://raw.githubusercontent.com/apietryga/kurs/master/api/weather/location/${value.toLowerCase()}`)
+ fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=70e5b97ff739ae2d836bed3a3f1cf33d`)
+    // fetch(`https://raw.githubusercontent.com/apietryga/kurs/master/api/weather/location/${value.toLowerCase()}`)
 
 
 
@@ -73,3 +74,22 @@ const getLatLonDependOfName = () => {
   
 }
 getLatLonDependOfName()
+
+document.addEventListener("keydown", e => { 
+  console.log(e.key)
+  if (e.key == "Enter") {
+    getLatLonDependOfName()
+  }
+})
+
+document.addEventListener("wheel", e => { 
+  if(e.deltaY < 0){
+    document.querySelector("#range").value--
+  }
+  else {
+    document.querySelector("#range").value++
+  }
+  changeCubeInfo(document.querySelector("#range").value)
+  
+}
+)
