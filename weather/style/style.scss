@@ -4,7 +4,12 @@
 body{
     background-color: #6ebae0;
     margin:0;
+  .weather{
+    margin: 1rem;
+    padding-left: 1rem;
+    font-family: 'Pacifico', cursive;
     
+  }  
     
     .buttons{
         // border: 2px dashed red;
@@ -158,6 +163,7 @@ body{
         // border: 2px dashed green;
         text-align: left;
         width: auto;
+        font-family: 'Pacifico', cursive;
     }
     
    .imageFooter{

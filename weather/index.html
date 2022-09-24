@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather APP</title>
+    <title>Weather Forecast</title>
+    <meta name="description" content="Check the weather forecast worldwide! What is the weather like? You can find out here! Sunrise's and sunset's time in your city!">
+    <meta name="og:image" content="https://vriabko.github.io/kursfront/weather/img/removebg-preview.webp">
     <link rel="stylesheet" href="style/style.css">
     <script src="script.js" defer></script>
     <link rel="shortcut icon" href="#">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     
 </head>
 <body>
     <header>
+        <div class="weather">
+            <h1>Weather Forecast</h1>
+        </div>
         <div class="searchLocation">
             <div class="buttons">
-                <input class="Inputstyle" type="text" id="location" value="Dubaj" onclick="this.value=''">
+                <input class="Inputstyle" type="text" id="location" value="Warszawa" onclick="this.value=''">
                 <button onclick="getLatLonDependOfName()">SZUKAJ</button>
             </div>
             <div class="image">
